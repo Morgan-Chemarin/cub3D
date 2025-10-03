@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 00:38:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/03 19:55:03 by pibreiss         ###   ########.fr       */
+/*   Created: 2024/11/11 17:22:09 by mchemari          #+#    #+#             */
+/*   Updated: 2025/10/03 18:56:01 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_map	map_data;
+	char	*result;
 	int		i;
+	int		s1_len;
+	int		s2_len;
 
-	if (!check_extension(argc, argv[1]))
-		return (1);
-	ft_memset(&map_data, 0, sizeof(t_map));
-	if (!parse_file(argv[1], &map_data))
-		return (1);
+	if (!s1 || !s2)
+		return (NULL);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	result = malloc(sizeof(char) * (s1_len + s2_len + 1));
+	if (!result)
+		return (NULL);
 	i = 0;
-	while (map_data.map && map_data.map[i])
+	while (s1[i])
 	{
-		printf("%s\n", map_data.map[i]);
+		result[i] = s1[i];
 		i++;
 	}
-	return (0);
+	while (s2[i - ft_strlen(s1)])
+	{
+		result[i] = s2[i - ft_strlen(s1)];
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
 }
