@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 00:37:41 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/03 17:30:20 by pibreiss         ###   ########.fr       */
+/*   Created: 2024/12/11 22:02:16 by pibreiss          #+#    #+#             */
+/*   Updated: 2025/10/03 17:59:36 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "get_next_line.h"
 
-# include "../libft/libft.h"
+int	found_newline(char *s)
+{
+	int	i;
 
-# include "struct.h"
-# include "prototypes.h"
-
-#endif
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+	{
+		if (s[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
+}

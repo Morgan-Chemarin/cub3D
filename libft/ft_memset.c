@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 00:37:41 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/03 17:30:20 by pibreiss         ###   ########.fr       */
+/*   Created: 2025/06/25 16:05:26 by dev               #+#    #+#             */
+/*   Updated: 2025/06/25 16:05:28 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+void	*ft_memset(void	*s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*p;
 
-# include "struct.h"
-# include "prototypes.h"
-
-#endif
+	p = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		p[i] = (unsigned char)c;
+		i++;
+	}
+	return (s);
+}

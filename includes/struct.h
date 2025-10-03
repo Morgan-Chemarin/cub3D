@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 00:37:41 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/03 17:30:20 by pibreiss         ###   ########.fr       */
+/*   Created: 2025/10/03 00:37:17 by pibreiss          #+#    #+#             */
+/*   Updated: 2025/10/03 19:10:00 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef STRUCT_H
+# define STRUCT_H
 
-# include "../libft/libft.h"
+typedef struct s_color
+{
+	int	r;
+	int	g;
+	int	b;
+}	t_color;
 
-# include "struct.h"
-# include "prototypes.h"
+typedef struct s_map
+{
+	char	*n_texture;
+	char	*s_texture;
+	char	*w_texture;
+	char	*e_texture;
+	t_color	floor_color;
+	t_color	ceiling_color;
+	char	**map;
+}	t_map;
 
 #endif

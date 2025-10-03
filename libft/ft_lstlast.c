@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 00:37:41 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/03 17:30:20 by pibreiss         ###   ########.fr       */
+/*   Created: 2024/11/13 18:58:00 by pibreiss          #+#    #+#             */
+/*   Updated: 2024/11/15 12:51:33 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+t_list	*ft_lstlast(t_list *lst)
+{
+	t_list	*current;
 
-# include "struct.h"
-# include "prototypes.h"
-
-#endif
+	current = lst;
+	if (lst == NULL)
+		return (NULL);
+	while (current->next != NULL)
+		current = current->next;
+	return (current);
+}

@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 00:37:41 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/03 17:30:20 by pibreiss         ###   ########.fr       */
+/*   Created: 2025/07/12 16:59:49 by dev               #+#    #+#             */
+/*   Updated: 2025/07/15 14:01:30 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+char	*ft_strchr(char *s, int c)
+{
+	int	i;
 
-# include "struct.h"
-# include "prototypes.h"
-
-#endif
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return (&s[i]);
+		i++;
+	}
+	if ((char)c == '\0')
+		return (&s[i]);
+	return (NULL);
+}

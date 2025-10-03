@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 00:37:41 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/03 17:30:20 by pibreiss         ###   ########.fr       */
+/*   Created: 2025/10/03 17:21:05 by pibreiss          #+#    #+#             */
+/*   Updated: 2025/10/03 18:16:46 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef PROTOTYPES_H
+# define PROTOTYPES_H
 
-# include "../libft/libft.h"
+// check_error
+int		check_extension(int argc, char *map_path);
 
-# include "struct.h"
-# include "prototypes.h"
+// read_map_file
+int		parse_file(char *map_path, t_map *map_data);
 
 #endif

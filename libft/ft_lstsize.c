@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 00:37:41 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/03 17:30:20 by pibreiss         ###   ########.fr       */
+/*   Created: 2024/11/13 18:43:47 by pibreiss          #+#    #+#             */
+/*   Updated: 2024/11/15 12:51:47 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include "../libft/libft.h"
+int	ft_lstsize(t_list *lst)
+{
+	int		count;
+	t_list	*current;
 
-# include "struct.h"
-# include "prototypes.h"
-
-#endif
+	count = 0;
+	current = lst;
+	while (current != NULL)
+	{
+		current = current->next;
+		count++;
+	}
+	return (count);
+}
