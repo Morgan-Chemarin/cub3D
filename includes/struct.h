@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:37:17 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/03 19:10:00 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/10/05 14:52:52 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_map
 	t_color	floor_color;
 	t_color	ceiling_color;
 	char	**map;
+	int		element_count;
 }	t_map;
 
 #endif
