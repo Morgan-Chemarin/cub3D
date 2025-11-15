@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:37:17 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/05 14:52:52 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/10/30 19:09:24 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ typedef struct s_map
 	t_color	ceiling_color;
 	char	**map;
 	int		element_count;
+	int		map_length;
+	int		map_width;
+	int		player_x;
+	int		player_y;
+	char	player_orientation;
 }	t_map;
 
 #endif

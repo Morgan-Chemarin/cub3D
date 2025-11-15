@@ -6,36 +6,11 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 14:29:09 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/05 16:55:43 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/14 16:19:01 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-void	free_split(char **split)
-{
-	int	i;
-
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
-
-int	splitlen(char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i])
-		i++;
-	return (i);
-}
 
 int	parse_texture(t_map *map_data, char **split)
 {
@@ -79,7 +54,7 @@ int	get_rgb_values(char *rgb_definition, t_color *color)
 		free_split(rgb_values);
 		ft_putstr_fd("Error: Invalid RGB format (must be R,G,B)\n", 2);
 		return (0);
-    }
+	}
 	r = ft_atoi(rgb_values[0]);
 	g = ft_atoi(rgb_values[1]);
 	b = ft_atoi(rgb_values[2]);
