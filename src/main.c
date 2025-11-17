@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:38:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/15 19:25:35 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/17 19:24:36 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ int	main(int argc, char **argv)
 		return (1);
 	if (!parsing_element(&map_data))
 	{
-		//free_all
+		free_all(&map_data);
 		return (1);
 	}
+	free_all(&map_data);
 	return (0);
 }

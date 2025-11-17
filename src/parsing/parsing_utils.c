@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:18:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/14 16:34:54 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/17 18:36:49 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,20 @@ void	calculate_map_width(t_map *map_data)
 		y++;
 	}
 	map_data->map_width = max_width;
+}
+
+void	free_all(t_map *map_data)
+{
+	if (!map_data)
+		return ;
+	if (map_data->n_texture)
+		free(map_data->n_texture);
+	if (map_data->s_texture)
+		free(map_data->s_texture);
+	if (map_data->w_texture)
+		free(map_data->w_texture);
+	if (map_data->e_texture)
+		free(map_data->e_texture);
+	if (map_data->map)
+		free_split(map_data->map);
 }

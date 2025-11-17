@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:21:05 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/15 19:09:36 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/17 18:36:59 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	free_split(char **split);
 int		splitlen(char **split);
 int		is_valid_char(char c);
 void	calculate_map_width(t_map *map_data);
+void	free_all(t_map *map_data);
 
 #endif
