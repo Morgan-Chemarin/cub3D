@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 17:17:28 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/05 14:36:10 by pibreiss         ###   ########.fr       */
+/*   Created: 2025/10/05 14:19:14 by pibreiss          #+#    #+#             */
+/*   Updated: 2025/10/30 19:14:32 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	check_extension(int argc, char *map_path)
+int	parsing_element(t_map *map_data)
 {
-	int	path_size;
+	int	i;
 
-	if (argc != 2)
+	i = 0;
+	while (map_data->map[i] && map_data->element_count < 6)
 	{
-		ft_putstr_fd("Error: Incorrect number of arguments\n", 2);
+		if (!map_data->map[i][0])
+		{
+			i++;
+			continue ;
+		}
+		if (!check_element(map_data->map[i], map_data))
+			return (0);
+		i++;
+	}
+	if (map_data->element_count != 6)
+	{
+		ft_putstr_fd("Error: the number of elements is not correct\n", 2);
 		return (0);
 	}
-	path_size = ft_strlen(map_path);
-	if (path_size < 5)
-	{
-		ft_putstr_fd("Error: the argument size must be", 2);
-		ft_putstr_fd(" longer than 4 characters\n", 2);
-		return (0);
-	}
-	if (ft_strcmp(map_path + path_size - 4, ".cub") != 0)
-	{
-		ft_putstr_fd("Error: The file name must end with .cub\n", 2);
-		return (0);
-	}
-	return (1);
+	return (parse_map(map_data, i));
 }

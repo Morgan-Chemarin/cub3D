@@ -6,7 +6,7 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:38:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/18 19:18:45 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/17 19:24:36 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,16 @@ int	main(int argc, char **argv)
 	if (!check_extension(argc, argv[1]))
 		return (1);
 	ft_memset(&map_data, 0, sizeof(t_map));
+	map_data.floor_color.r = -1;
+	map_data.ceiling_color.r = -1;
 	if (!parse_file(argv[1], &map_data))
 		return (1);
+	if (!parsing_element(&map_data))
+	{
+		free_all(&map_data);
+		return (1);
+	}
+	free_all(&map_data);
 	// i = 0;
 	// while (map_data.map && map_data.map[i])
 	// {

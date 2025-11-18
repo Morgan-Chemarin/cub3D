@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 22:02:19 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/03 18:55:32 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/17 19:22:06 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 char	*clean_stash(char *stash)
 {
 	int		i;
-	int		j;
 	char	*temp;
 
+	if (!stash)
+		return (NULL);
 	i = 0;
 	while (stash[i] && stash[i] != '\n')
 		i++;
@@ -27,14 +28,12 @@ char	*clean_stash(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	temp = malloc(sizeof(char) * (ft_strlen(stash) - i + 1));
+	temp = ft_substr(stash, i + 1, ft_strlen(stash) - i - 1);
 	if (!temp)
+	{
+		free(stash);
 		return (NULL);
-	i++;
-	j = 0;
-	while (stash[i])
-		temp[j++] = stash[i++];
-	temp[j] = '\0';
+	}
 	free(stash);
 	return (temp);
 }
@@ -69,28 +68,30 @@ char	*fill_line(char *stash)
 
 char	*read_file(int fd, char *stash)
 {
-	char	*buffer;
-	int		bytes_read;
+	char	buffer[BUFFER_SIZE + 1];
+	int		bytes;
+	char	*temp;
 
-	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buffer)
-		return (NULL);
-	bytes_read = 1;
 	if (!stash)
 		stash = ft_strdup("");
-	while (!found_newline(stash) && bytes_read != 0)
+	bytes = 1;
+	while (!ft_strchr(stash, '\n') && bytes > 0)
 	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read == -1)
+		bytes = read(fd, buffer, BUFFER_SIZE);
+		if (bytes < 0)
 		{
 			free(stash);
-			free(buffer);
 			return (NULL);
 		}
-		buffer[bytes_read] = '\0';
-		stash = ft_strjoin(stash, buffer);
+		if (bytes == 0)
+			break ;
+		buffer[bytes] = '\0';
+		temp = ft_strjoin(stash, buffer);
+		free(stash);
+		stash = temp;
+		if (!stash)
+			return (NULL);
 	}
-	free(buffer);
 	return (stash);
 }
 
