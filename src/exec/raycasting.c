@@ -6,12 +6,13 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 23:11:15 by dev               #+#    #+#             */
-/*   Updated: 2025/11/18 17:50:24 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/18 23:17:30 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 #include <math.h>
+#include <stdio.h>
 
 static void	init_delta_dist(t_ray *ray)
 {

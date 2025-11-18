@@ -6,7 +6,7 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:38:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/17 19:24:36 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/18 22:33:05 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,6 @@ int	main(int argc, char **argv)
 		free_all(&map_data);
 		return (1);
 	}
-	free_all(&map_data);
-	// i = 0;
-	// while (map_data.map && map_data.map[i])
-	// {
-	// 	printf("%s\n", map_data.map[i]);
-	// 	i++;
-	// }
 	data.map = map_data;
 	if (!init_data(&data))
     {
@@ -49,5 +42,6 @@ int	main(int argc, char **argv)
 	mlx_hook(data.win, 2, 1L<<0, key_press, &data);
 	mlx_loop_hook(data.mlx, &game_loop, &data);
 	mlx_loop(data.mlx);
+	free_all(&map_data);
 	return (0);
 }

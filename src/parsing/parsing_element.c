@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_element.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 14:29:09 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/14 16:19:01 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/18 20:41:16 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	parse_texture(t_map *map_data, char **split)
 {
 	char	**texture;
 
+	texture = NULL;
 	if (splitlen(split) != 2)
 	{
 		ft_putstr_fd("Error: Invalid texture difinition\n", 2);
@@ -74,6 +75,7 @@ int	parse_color(t_map *map_data, char **split)
 {
 	t_color	*color;
 
+	color = NULL;
 	if (splitlen(split) != 2)
 	{
 		ft_putstr_fd("Error: Invalid color definition\n", 2);
