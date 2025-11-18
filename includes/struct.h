@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:37:17 by pibreiss          #+#    #+#             */
 /*   Updated: 2025/10/30 19:09:24 by pibreiss         ###   ########.fr       */
@@ -12,6 +12,8 @@
 
 #ifndef STRUCT_H
 # define STRUCT_H
+
+# include <stdbool.h>
 
 typedef struct s_color
 {
@@ -36,5 +38,56 @@ typedef struct s_map
 	int		player_y;
 	char	player_orientation;
 }	t_map;
+
+typedef struct s_player
+{
+	double	x;
+	double	y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	move_speed;
+	double	rot_speed;
+}   t_player;
+
+typedef struct s_img
+{
+    void    *ptr;
+    char    *addr;
+    int     bpp;
+    int     line_len;
+    int     endian;
+}   t_img;
+
+typedef struct s_ray
+{
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+}	t_ray;
+
+
+typedef struct s_data
+{
+	void		*mlx;
+	void		*win;
+	t_img		img;
+	t_map		map;
+	t_player	player;
+	int			screen_w;
+	int			screen_h;
+	bool		running;
+}	t_data;
 
 #endif

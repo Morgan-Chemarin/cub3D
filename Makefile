@@ -2,9 +2,9 @@ NAME        = cub3D
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror -g
 
-INCLUDES    = -I includes -I libft
+INCLUDES    = -I includes -I libft -I minilibx-linux
 
-LDFLAGS     = -Llibft -lft
+LDFLAGS     = -Llibft -lft -Lminilibx-linux -lmlx -lXext -lX11 -lm
 
 SRCS        = $(shell find src -name "*.c")
 
