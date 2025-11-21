@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:37:17 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/18 21:31:19 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/21 22:46:01 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ typedef struct s_player
 	double	plane_y;
 	double	move_speed;
 	double	rot_speed;
-}   t_player;
+}	t_player;
 
 typedef struct s_img
 {
-    void    *ptr;
-    char    *addr;
-    int     bpp;
-    int     line_len;
-    int     endian;
-}   t_img;
+	void	*ptr;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_img;
 
 typedef struct s_ray
 {
@@ -77,6 +77,15 @@ typedef struct s_ray
 	int		side;
 }	t_ray;
 
+typedef struct s_input
+{
+	bool	move_forward;
+	bool	move_backward;
+	bool	move_left;
+	bool	move_right;
+	bool	turn_left;
+	bool	turn_right;
+}	t_input;
 
 typedef struct s_data
 {
@@ -85,6 +94,7 @@ typedef struct s_data
 	t_img		img;
 	t_map		map;
 	t_player	player;
+	t_input		input;
 	int			screen_w;
 	int			screen_h;
 	bool		running;
