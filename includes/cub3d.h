@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:37:41 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/21 22:41:26 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/21 22:58:47 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@
 # define KEY_A		97
 # define KEY_S		115
 # define KEY_D		100
-# define M_PI 3.14159265358979323846
 
 #endif

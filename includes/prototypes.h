@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:21:05 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/21 22:46:16 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/21 23:44:09 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		game_loop(t_data *data);
 // events
 int		close_window(t_data *data);
 int		key_press(int keycode, t_data *data);
-int 	key_release(int keycode, t_data *data);
+int		key_release(int keycode, t_data *data);
 
 // raycasting
 void	init_ray(t_data *data, t_ray *ray, int x);

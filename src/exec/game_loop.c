@@ -13,7 +13,6 @@
 #include "../../includes/cub3d.h"
 #include <mlx.h>
 #include <math.h>
-#include <stdio.h>
 
 static void draw_test_pattern(t_data *data)
 {
@@ -44,16 +43,19 @@ bool	is_blocked(t_data *data, double x, double y)
 	if (grid_x < 0 || grid_x >= line_len)
 		return (true);
 	cell = data->map.map[grid_y][grid_x];
-	return (cell != '0');
+	if (cell != '0')
+		return (true);
+	else if (cell == '0')
+		return (false);
 }
 
-void	move_player(t_data *data, double x, double y)
+void	move_player(t_data *data, double distance_x, double distance_y)
 {
 	double	next_x;
 	double	next_y;
 
-	next_x = data->player.x + x;
-	next_y = data->player.y + y;
+	next_x = data->player.x + distance_x;
+	next_y = data->player.y + distance_y;
 	if (!is_blocked(data, next_x, data->player.y))
 		data->player.x = next_x;
 	if (!is_blocked(data, data->player.x, next_y))
@@ -89,39 +91,12 @@ void	handle_player_input(t_data *data)
 	if (data->input.move_right)
 		move_player(data, p->plane_x * p->move_speed, p->plane_y * p->move_speed);
 	if (data->input.move_left)
-		move_player(data, -p->plane_x * p->move_speed, p->plane_y * p->move_speed);
+		move_player(data, -p->plane_x * p->move_speed, -p->plane_y * p->move_speed);
 	if (data->input.turn_left)
 		rotate_player(p, -p->rot_speed);
 	if (data->input.turn_right)
 		rotate_player(p, p->rot_speed);
 	}
-
-static bool	has_changed(double prev, double curr)
-{
-    return (fabs(prev - curr) > 1e-4);
-}
-
-void	monitor_player_state(t_data *data)
-{
-    t_player	*player;
-    static double	prev_x = NAN;
-    static double	prev_y = NAN;
-    static double	prev_angle = NAN;
-    double			angle;
-
-    player = &data->player;
-    angle = atan2(player->dir_y, player->dir_x);
-    if (isnan(prev_x) || has_changed(prev_x, player->x)
-        || has_changed(prev_y, player->y)
-        || has_changed(prev_angle, angle))
-    {
-        printf("Player -> pos(%.2f, %.2f) angle %.1f°\n",
-            player->x, player->y, angle * (180.0 / M_PI));
-        prev_x = player->x;
-        prev_y = player->y;
-        prev_angle = angle;
-    }
-}
 
 int	game_loop(t_data *data)
 {
