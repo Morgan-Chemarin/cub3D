@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 19:46:26 by dev               #+#    #+#             */
-/*   Updated: 2025/11/22 22:45:42 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/22 23:20:07 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static void	init_player(t_data *data)
 	data->player.plane_x = 0;
 	data->player.plane_y = 0;
 	set_player_orientation(data);
-	data->player.move_speed = 0.05;
-	data->player.rot_speed = 0.05;
+	data->player.move_speed = 0.025;
+	data->player.rot_speed = 0.015;
 }
 
 int	init_data(t_data *data)

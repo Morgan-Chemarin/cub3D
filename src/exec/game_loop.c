@@ -14,6 +14,37 @@
 #include <mlx.h>
 #include <math.h>
 
+static void	draw_background(t_data *data)
+{
+    int		y;
+    int		x;
+    int		ceiling_color;
+    int		floor_color;
+    char	*dst;
+
+    ceiling_color = (data->map.ceiling_color.r << 16)
+        | (data->map.ceiling_color.g << 8)
+        | data->map.ceiling_color.b;
+    floor_color = (data->map.floor_color.r << 16)
+        | (data->map.floor_color.g << 8)
+        | data->map.floor_color.b;
+    y = 0;
+    while (y < data->screen_h)
+    {
+        x = 0;
+        while (x < data->screen_w)
+        {
+            dst = data->img.addr + y * data->img.line_len + x * (data->img.bpp / 8);
+            if (y < data->screen_h / 2)
+                *(int *)dst = ceiling_color;
+            else
+                *(int *)dst = floor_color;
+            x++;
+        }
+        y++;
+    }
+}
+
 static void draw_test_pattern(t_data *data)
 {
 	t_ray	ray;
@@ -104,6 +135,7 @@ int	game_loop(t_data *data)
 		return (0);
 	handle_player_input(data);
 	// afficher plafond et sol avant mur ( peut etre direct dans drawtestpattern)
+	draw_background(data);
 	draw_test_pattern(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.ptr, 0, 0);
 	return (0);
