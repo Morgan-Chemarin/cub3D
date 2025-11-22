@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:38:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/21 22:32:32 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/22 22:48:30 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main(int argc, char **argv)
 {
 	t_map	map_data;
 	t_data	data;
-	// int		i;
 
 	if (!check_extension(argc, argv[1]))
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 23:09:55 by dev               #+#    #+#             */
-/*   Updated: 2025/11/21 18:48:25 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/22 22:47:09 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int close_window(t_data *data)
 {
-    data->running = false;
-    mlx_destroy_window(data->mlx, data->win);
-    exit(0);
-    return (0);
+	data->running = false;
+	mlx_destroy_window(data->mlx, data->win);
+	exit(0);
+	return (0);
 }
 
 int key_press(int keycode, t_data *data)

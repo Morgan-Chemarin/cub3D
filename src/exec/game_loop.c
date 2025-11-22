@@ -45,7 +45,7 @@ bool	is_blocked(t_data *data, double x, double y)
 	cell = data->map.map[grid_y][grid_x];
 	if (cell != '0')
 		return (true);
-	else if (cell == '0')
+	else
 		return (false);
 }
 
@@ -103,7 +103,6 @@ int	game_loop(t_data *data)
 	if (!data->running)
 		return (0);
 	handle_player_input(data);
-	monitor_player_state(data);
 	// afficher plafond et sol avant mur ( peut etre direct dans drawtestpattern)
 	draw_test_pattern(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.ptr, 0, 0);
