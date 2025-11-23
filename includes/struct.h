@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:37:17 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/21 22:46:01 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/23 23:31:03 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct s_img
 	int		bpp;
 	int		line_len;
 	int		endian;
+	int		width;
+	int		height;
 }	t_img;
 
 typedef struct s_ray
@@ -92,6 +94,7 @@ typedef struct s_data
 	void		*mlx;
 	void		*win;
 	t_img		img;
+	t_img		textures[4];
 	t_map		map;
 	t_player	player;
 	t_input		input;

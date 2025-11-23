@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:38:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/22 22:48:30 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/23 23:32:50 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	main(int argc, char **argv)
         ft_putstr_fd("Error: MLX initialization failed\n", 2);
         return (1);
     }
+	if (!init_textures(&data))
+		return (1);
 	mlx_hook(data.win, 17, 0, close_window, &data);
 	mlx_hook(data.win, 2, 1L<<0, key_press, &data);
 	mlx_hook(data.win, 3, 1L<<1, key_release, &data);

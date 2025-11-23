@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:21:05 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/21 23:44:09 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/23 23:31:47 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,12 @@ void	init_ray(t_data *data, t_ray *ray, int x);
 
 // dda
 void	dda(t_data *data, t_ray *ray, int x);
+void	put_pixel(t_data *data, int x, int y, int color);
+
+// init_texture
+int		init_textures(t_data *data);
+
+// texture_handler
+void	draw_wall(double perp_wall, t_data *data, t_ray *ray, int x);
 
 #endif
