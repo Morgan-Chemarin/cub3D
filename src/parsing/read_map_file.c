@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 18:10:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/17 19:23:27 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/24 00:36:23 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,20 +85,20 @@ int	parse_file(char *map_path, t_map *map_data)
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_putstr_fd("Error: Could not open map file.\n", 2);
+		ft_putstr_fd("Error\nCould not open map file.\n", 2);
 		return (0);
 	}
 	map_list = read_lines(fd);
 	close(fd);
 	if (!map_list)
 	{
-		ft_putstr_fd("Error: The map file could not be read\n", 2);
+		ft_putstr_fd("Error\nThe map file could not be read\n", 2);
 		return (0);
 	}
 	if (!list_to_map(map_list, map_data))
 	{
 		ft_lstclear(&map_list, free);
-		ft_putstr_fd("Error: Memory allocation failed\n", 2);
+		ft_putstr_fd("Error\nMemory allocation failed\n", 2);
 		return (0);
 	}
 	ft_lstclear(&map_list, free);

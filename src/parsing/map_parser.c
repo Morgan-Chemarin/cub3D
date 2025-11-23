@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 19:21:43 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/15 19:25:19 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/24 00:35:35 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	set_player_pos(t_map *map_data, int x, int y)
 {
 	if (map_data->player_orientation != 0)
 	{
-		ft_putstr_fd("Error: Multiple player found\n", 2);
+		ft_putstr_fd("Error\nMultiple player found\n", 2);
 		return (0);
 	}
 	map_data->player_x = x;
@@ -40,7 +40,7 @@ int	find_player_and_validate_char_map(t_map *map_data)
 		{
 			if (!is_valid_char(map_data->map[y][x]))
 			{
-				ft_putstr_fd("Error: Invalid char in map\n", 2);
+				ft_putstr_fd("Error\nInvalid char in map\n", 2);
 				return (0);
 			}
 			if (ft_strchr("NSWE", map_data->map[y][x]))
@@ -81,7 +81,7 @@ int	isolate_map(t_map *map_data, int start_index)
 		start_index++;
 	if (!map_data->map[start_index])
 	{
-		ft_putstr_fd("Error: Map not found\n", 2);
+		ft_putstr_fd("Error\nMap not found\n", 2);
 		return (0);
 	}
 	i = start_index;
@@ -108,7 +108,7 @@ int	parse_map(t_map	*map_data, int start_index)
 		return (0);
 	if (map_data->player_orientation == 0)
 	{
-		ft_putstr_fd("Error: No player found\n", 2);
+		ft_putstr_fd("Error\nNo player found\n", 2);
 		return (0);
 	}
 	if (!validate_wall(map_data))

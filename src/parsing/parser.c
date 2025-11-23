@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 14:19:14 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/10/30 19:14:32 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/24 00:35:43 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	parsing_element(t_map *map_data)
 	}
 	if (map_data->element_count != 6)
 	{
-		ft_putstr_fd("Error: the number of elements is not correct\n", 2);
+		ft_putstr_fd("Error\nthe number of elements is not correct\n", 2);
 		return (0);
 	}
 	return (parse_map(map_data, i));

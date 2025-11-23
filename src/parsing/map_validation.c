@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:38:58 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/15 19:16:11 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/24 00:35:39 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	validate_wall(t_map *map_data)
 			{
 				if (!check_neighbors(map_data->map, i, j, map_data->map_length))
 				{
-					ft_putstr_fd("Error: Map is not closed by walls\n", 2);
+					ft_putstr_fd("Error\nMap is not closed by walls\n", 2);
 					return (0);
 				}
 			}

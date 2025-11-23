@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:38:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/23 23:32:50 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/24 00:34:51 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	data.map = map_data;
 	if (!init_data(&data))
     {
-        ft_putstr_fd("Error: MLX initialization failed\n", 2);
+        ft_putstr_fd("Error\nMLX initialization failed\n", 2);
         return (1);
     }
 	if (!init_textures(&data))
