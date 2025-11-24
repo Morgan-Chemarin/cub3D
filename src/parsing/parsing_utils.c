@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:18:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/17 18:36:49 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/24 15:48:48 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-void	free_split(char **split)
-{
-	int	i;
-
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
 
 int	splitlen(char **split)
 {
@@ -59,20 +44,4 @@ void	calculate_map_width(t_map *map_data)
 		y++;
 	}
 	map_data->map_width = max_width;
-}
-
-void	free_all(t_map *map_data)
-{
-	if (!map_data)
-		return ;
-	if (map_data->n_texture)
-		free(map_data->n_texture);
-	if (map_data->s_texture)
-		free(map_data->s_texture);
-	if (map_data->w_texture)
-		free(map_data->w_texture);
-	if (map_data->e_texture)
-		free(map_data->e_texture);
-	if (map_data->map)
-		free_split(map_data->map);
 }

@@ -3,28 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 23:09:55 by dev               #+#    #+#             */
-/*   Updated: 2025/11/22 22:47:09 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/24 16:25:19 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 #include <mlx.h>
 
-int close_window(t_data *data)
-{
-	data->running = false;
-	mlx_destroy_window(data->mlx, data->win);
-	exit(0);
-	return (0);
-}
-
-int key_press(int keycode, t_data *data)
+int	key_press(int keycode, t_data *data)
 {
 	if (keycode == KEY_ESC)
-		close_window(data);
+		free_all(data);
 	else if (keycode == KEY_A)
 		data->input.move_left = true;
 	else if (keycode == KEY_D)
@@ -40,7 +32,7 @@ int key_press(int keycode, t_data *data)
 	return (0);
 }
 
-int key_release(int keycode, t_data *data)
+int	key_release(int keycode, t_data *data)
 {
 	if (keycode == KEY_A)
 		data->input.move_left = false;

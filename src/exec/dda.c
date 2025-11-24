@@ -3,25 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 20:32:01 by dev               #+#    #+#             */
-/*   Updated: 2025/11/23 23:32:21 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/24 15:26:52 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 #include <math.h>
-
-void	put_pixel(t_data *data, int x, int y, int color)
-{
-	char	*destination;
-
-	if (x < 0 || x >= data->screen_w || y < 0 || y >= data->screen_h)
-		return ;
-	destination = data->img.addr + (y * data->img.line_len + x * (data->img.bpp / 8));
-	*(int *)destination = color;
-}
 
 static double	calc_perp(t_ray *ray)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 19:46:26 by dev               #+#    #+#             */
-/*   Updated: 2025/11/23 23:37:16 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/24 16:55:12 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ int	init_data(t_data *data)
 		return (0);
 	data->img.addr = mlx_get_data_addr(data->img.ptr,
 			&data->img.bpp, &data->img.line_len, &data->img.endian);
+	if (!data->img.addr)
+		return (0);
 	init_player(data);
-	data->running = true;
+	data->running = true; //  pas sur
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_handler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 21:13:32 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/23 23:25:46 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/24 15:34:50 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	draw_wall(double perp_wall, t_data *data, t_ray *ray, int x)
 	while (limit[0] <= limit[1])
 	{
 		put_pixel(data, x, limit[0]++, get_texture_color(texture,
-			wall_height, (int)texture_pos % texture->height));
+				wall_height, (int)texture_pos % texture->height));
 		texture_pos += step;
 	}
 }
