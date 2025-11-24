@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_handler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 21:13:32 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/24 15:34:50 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/24 23:53:26 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ t_img	*get_texture(t_data *data, t_ray *ray)
 	}
 }
 
-int	get_texture_color(t_img *texture, int x, int y)
+int	get_texture_color(t_img *t, int x, int y)
 {
 	char	*destination;
 
-	if (x < 0 || x >= texture->width || y < 0 || y >= texture->height)
+	if (x < 0 || x >= t->width || y < 0 || y >= t->height)
 		return (0);
-	destination = texture->addr + (y * texture->line_len + x * (texture->bpp / 8));
+	destination = t->addr + (y * t->line_len + x * (t->bpp / 8));
 	return (*(unsigned int *)destination);
 }
 
@@ -53,7 +53,7 @@ int	get_texture_x(t_data *data, t_ray *ray, double perp_wall, t_img *texture)
 	wall_x -= floor(wall_x);
 	texture_x = (int)(wall_x * (double)texture->width);
 	if ((ray->side == 0 && ray->ray_dir_x > 0) || (ray->side == 1
-		&& ray->ray_dir_y < 0))
+			&& ray->ray_dir_y < 0))
 		texture_x = texture->width - texture_x - 1;
 	return (texture_x);
 }

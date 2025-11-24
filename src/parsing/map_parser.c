@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 19:21:43 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/24 00:35:35 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/25 00:00:31 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	isolate_map(t_map *map_data, int start_index)
 {
 	char	**full_file_content;
 	char	**map_grid;
-	int		i;
 
 	while (map_data->map[start_index] && !map_data->map[start_index][0])
 		start_index++;
@@ -84,10 +83,9 @@ int	isolate_map(t_map *map_data, int start_index)
 		ft_putstr_fd("Error\nMap not found\n", 2);
 		return (0);
 	}
-	i = start_index;
-	while (map_data->map[i])
-		i++;
-	map_data->map_length = i - start_index;
+	map_data->map_length = get_map_len(map_data->map, start_index);
+	if (map_data->map_length == -1)
+		return (0);
 	map_grid = ft_calloc(map_data->map_length + 1, sizeof(char *));
 	if (!map_grid)
 		return (0);

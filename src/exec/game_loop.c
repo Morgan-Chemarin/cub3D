@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:03:14 by dev               #+#    #+#             */
-/*   Updated: 2025/11/24 15:34:40 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/24 23:52:09 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,11 @@ void	handle_player_input(t_data *data)
 	if (data->input.move_backward)
 		move_player(data, -p->dir_x * p->move_speed, -p->dir_y * p->move_speed);
 	if (data->input.move_right)
-		move_player(data, p->plane_x * p->move_speed, p->plane_y * p->move_speed);
+		move_player(data, p->plane_x * p->move_speed,
+			p->plane_y * p->move_speed);
 	if (data->input.move_left)
-		move_player(data, -p->plane_x * p->move_speed, -p->plane_y * p->move_speed);
+		move_player(data, -p->plane_x * p->move_speed,
+			-p->plane_y * p->move_speed);
 	if (data->input.turn_left)
 		rotate_player(p, -p->rot_speed);
 	if (data->input.turn_right)

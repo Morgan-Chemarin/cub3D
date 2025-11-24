@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 14:29:09 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/24 00:36:16 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/25 00:20:58 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ int	parse_texture(t_map *map_data, char **split)
 		ft_putstr_fd("Error\nInvalid texture difinition\n", 2);
 		return (0);
 	}
-	if (ft_strcmp(split[0], "NO") == 0)
-		texture = &map_data->n_texture;
-	else if (ft_strcmp(split[0], "SO") == 0)
+	texture = &map_data->n_texture;
+	if (ft_strcmp(split[0], "SO") == 0)
 		texture = &map_data->s_texture;
 	else if (ft_strcmp(split[0], "WE") == 0)
 		texture = &map_data->w_texture;
@@ -71,27 +70,49 @@ int	get_rgb_values(char *rgb_definition, t_color *color)
 	return (1);
 }
 
+char	*join_color_args(char **split)
+{
+	char	*joined;
+	char	*tmp;
+	int		i;
+
+	joined = ft_strdup("");
+	i = 1;
+	while (split[i])
+	{
+		tmp = ft_strjoin(joined, split[i]);
+		free(joined);
+		joined = tmp;
+		i++;
+	}
+	return (joined);
+}
+
 int	parse_color(t_map *map_data, char **split)
 {
 	t_color	*color;
+	char	*rgb_str;
 
-	color = NULL;
-	if (splitlen(split) != 2)
+	if (splitlen(split) < 2)
 	{
 		ft_putstr_fd("Error\nInvalid color definition\n", 2);
 		return (0);
 	}
+	color = &map_data->ceiling_color;
 	if (ft_strcmp(split[0], "F") == 0)
 		color = &map_data->floor_color;
-	else if (ft_strcmp(split[0], "C") == 0)
-		color = &map_data->ceiling_color;
 	if (color->r != -1)
 	{
 		ft_putstr_fd("Error\nDuplicate color identifier\n", 2);
 		return (0);
 	}
-	if (!get_rgb_values(split[1], color))
+	rgb_str = join_color_args(split);
+	if (!get_rgb_values(rgb_str, color))
+	{
+		free(rgb_str);
 		return (0);
+	}
+	free(rgb_str);
 	map_data->element_count++;
 	return (1);
 }

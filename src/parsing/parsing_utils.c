@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:18:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/24 15:48:48 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/25 00:11:29 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,31 @@ void	calculate_map_width(t_map *map_data)
 		y++;
 	}
 	map_data->map_width = max_width;
+}
+
+int	get_map_len(char **map, int start)
+{
+	int	i;
+	int	j;
+
+	i = start;
+	while (map[i])
+	{
+		if (map[i][0] == '\0')
+		{
+			j = i;
+			while (map[j])
+			{
+				if (map[j][0] != '\0')
+				{
+					ft_putstr_fd("Error\nThe map is not in one piece\n", 2);
+					return (-1);
+				}
+				j++;
+			}
+			return (i - start);
+		}
+		i++;
+	}
+	return (i - start);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:21:05 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/24 16:27:09 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/25 00:00:53 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		validate_wall(t_map *map_data);
 int		splitlen(char **split);
 int		is_valid_char(char c);
 void	calculate_map_width(t_map *map_data);
+int		get_map_len(char **map, int start);
 
 // * EXEC * //
 
