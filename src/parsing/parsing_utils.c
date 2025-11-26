@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:18:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/26 05:30:34 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/26 15:48:11 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	get_map_len(char **map, int start)
 			{
 				if (map[j][0] != '\0')
 				{
-					ft_putstr_fd("Error\nThe map is not in one piece\n", 2);
+					ft_putstr_fd("Error\nInvalid map format\n", 2);
 					return (-1);
 				}
 				j++;

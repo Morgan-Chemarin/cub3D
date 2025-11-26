@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:17:28 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/26 05:38:35 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/26 15:46:39 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_extension(int argc, char *map_path)
 	path_size = ft_strlen(map_path);
 	if (path_size < 5)
 	{
-		ft_putstr_fd("Error\nthe argument size must be", 2);
+		ft_putstr_fd("Error\nThe argument size must be", 2);
 		ft_putstr_fd(" longer than 4 characters\n", 2);
 		return (0);
 	}

@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 14:29:09 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/26 05:36:16 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/26 16:07:14 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,26 +120,39 @@ int	check_element(char *line, t_map *map_data)
 {
 	int		status;
 	char	**split;
+	char	*identifier;
+	char	*path;
+	char	*space_ptr;
 
 	status = 1;
-	split = ft_split(line, ' ');
-	if (!split || !split[0])
+	space_ptr = ft_strchr(line, ' ');
+	if (!space_ptr)
 	{
-		free_split(split);
-		return (1);
+		split = ft_split(line, ' ');
+		if (!split || !split[0])
+		{
+			free_split(split);
+			return (1);
+		}
 	}
+	else
+	{
+		identifier = ft_substr(line, 0, space_ptr - line);
+		path = ft_strtrim(space_ptr, " ");
+		split = ft_calloc(3, sizeof(char *));
+		if (split)
+		{
+			split[0] = identifier;
+			split[1] = path;
+		}
+	}
+	if (!split)
+		return (0);
 	if (ft_strcmp(split[0], "NO") == 0 || ft_strcmp(split[0], "SO") == 0
 		|| ft_strcmp(split[0], "WE") == 0 || ft_strcmp(split[0], "EA") == 0)
 		status = parse_texture(map_data, split);
 	else if (ft_strcmp(split[0], "F") == 0 || ft_strcmp(split[0], "C") == 0)
 		status = parse_color(map_data, split);
-	else
-	{
-		ft_putstr_fd("Error\nInvalid identifier in file:'", 2);
-		ft_putstr_fd(split[0], 2);
-		ft_putstr_fd("'\n", 2);
-		status = 0;
-	}
 	free_split(split);
 	return (status);
 }
