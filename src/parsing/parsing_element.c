@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 14:29:09 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/25 00:20:58 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/26 05:36:16 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,9 @@ int	get_rgb_values(char *rgb_definition, t_color *color)
 	char	**rgb_values;
 
 	rgb_values = ft_split(rgb_definition, ',');
-	if (!rgb_values || splitlen(rgb_values) != 3)
+	if (!validate_rgb_array(rgb_values))
 	{
 		free_split(rgb_values);
-		ft_putstr_fd("Error\nInvalid RGB format (must be R,G,B)\n", 2);
 		return (0);
 	}
 	r = ft_atoi(rgb_values[0]);

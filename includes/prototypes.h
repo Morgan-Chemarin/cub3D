@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:21:05 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/25 00:00:53 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/26 05:36:52 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 // check_error
 int		check_extension(int argc, char *map_path);
+int		validate_rgb_array(char **rgb_values);
 
 // read_map_file
 int		parse_file(char *map_path, t_map *map_data);
@@ -38,6 +39,7 @@ int		splitlen(char **split);
 int		is_valid_char(char c);
 void	calculate_map_width(t_map *map_data);
 int		get_map_len(char **map, int start);
+int		is_str_digit(char *str);
 
 // * EXEC * //
 

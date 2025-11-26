@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:18:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/25 00:11:29 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/26 05:30:34 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,18 @@ int	get_map_len(char **map, int start)
 		i++;
 	}
 	return (i - start);
+}
+
+int	is_str_digit(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if ((str[i] < '0' || str[i] > '9') && str[i] != '\n')
+			return (0);
+		i++;
+	}
+	return (1);
 }

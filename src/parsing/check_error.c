@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:17:28 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/24 00:35:14 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/26 05:38:35 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,22 @@ int	check_extension(int argc, char *map_path)
 	if (ft_strcmp(map_path + path_size - 4, ".cub") != 0)
 	{
 		ft_putstr_fd("Error\nThe file name must end with .cub\n", 2);
+		return (0);
+	}
+	return (1);
+}
+
+int	validate_rgb_array(char **rgb_values)
+{
+	if (!rgb_values || splitlen(rgb_values) != 3)
+	{
+		ft_putstr_fd("Error\nInvalid RGB format (must be R,G,B)\n", 2);
+		return (0);
+	}
+	if (!is_str_digit(rgb_values[0]) || !is_str_digit(rgb_values[1])
+		|| !is_str_digit(rgb_values[2]))
+	{
+		ft_putstr_fd("Error\nInvalid RGB values\n", 2);
 		return (0);
 	}
 	return (1);
