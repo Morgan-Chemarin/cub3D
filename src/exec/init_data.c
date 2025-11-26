@@ -6,7 +6,7 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 19:46:26 by dev               #+#    #+#             */
-/*   Updated: 2025/11/24 16:55:12 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/26 19:47:11 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,5 @@ int	init_data(t_data *data)
 	if (!data->img.addr)
 		return (0);
 	init_player(data);
-	data->running = true; //  pas sur
 	return (1);
 }

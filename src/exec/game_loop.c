@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:03:14 by dev               #+#    #+#             */
-/*   Updated: 2025/11/24 23:52:09 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/26 19:12:32 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,6 @@ int	game_loop(t_data *data)
 	t_ray	ray;
 	int		x;
 
-	if (!data->running)
-		return (0);
 	handle_player_input(data);
 	draw_background(data);
 	x = 0;

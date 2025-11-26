@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:37:17 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/23 23:31:03 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/26 19:11:56 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ typedef struct s_data
 	t_input		input;
 	int			screen_w;
 	int			screen_h;
-	bool		running;
 }	t_data;
 
 #endif
