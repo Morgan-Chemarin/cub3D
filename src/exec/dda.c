@@ -6,12 +6,11 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 20:32:01 by dev               #+#    #+#             */
-/*   Updated: 2025/11/24 15:26:52 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/27 18:39:29 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-#include <math.h>
 
 static double	calc_perp(t_ray *ray)
 {

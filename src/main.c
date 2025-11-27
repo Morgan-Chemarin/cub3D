@@ -6,12 +6,11 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:38:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/26 19:44:55 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/27 18:39:21 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-#include <stdio.h>
 #include <mlx.h>
 
 static int	init_game_data(t_data *data)

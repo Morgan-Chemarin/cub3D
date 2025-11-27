@@ -16,6 +16,7 @@ vpath %.h includes
 SRC_DIR    = src
 OBJ_DIR    = .obj
 LIBFT_DIR  = libft
+MINILIBX_DIR = minilibx-linux
 
 SRCS =	main.c \
 		dda.c \
@@ -50,6 +51,7 @@ $(NAME): $(OBJS) $(LIB_LIBFT)
 
 lib:
 	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(MINILIBX_DIR)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
@@ -60,6 +62,7 @@ $(OBJ_DIR)/%.o: %.c Makefile
 
 clean:
 	$(MAKE) clean -C $(LIBFT_DIR)
+	$(MAKE) clean -C $(MINILIBX_DIR)
 	rm -rf $(OBJ_DIR)
 	@echo "Object files cleaned."
 

@@ -6,12 +6,11 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 23:09:55 by dev               #+#    #+#             */
-/*   Updated: 2025/11/24 16:25:19 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/27 18:39:38 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-#include <mlx.h>
 
 int	key_press(int keycode, t_data *data)
 {
