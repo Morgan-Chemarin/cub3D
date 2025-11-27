@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:21:05 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/26 05:36:52 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:15:08 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int		parse_file(char *map_path, t_map *map_data);
 
 // parsing_element
 int		check_element(char *line, t_map *map_data);
+
+// parsing_element_utils
+char	*join_color_args(char **split);
+char	**extract_element_data(char *line);
 
 // parser
 int		parsing_element(t_map *map_data);

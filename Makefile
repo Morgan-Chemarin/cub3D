@@ -31,6 +31,7 @@ SRCS =	main.c \
 		map_validation.c \
 		parser.c \
 		parsing_element.c \
+		parsing_element_utils.c \
 		parsing_utils.c \
 		read_map_file.c \
 		free_close.c \

@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 14:29:09 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/26 16:07:14 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:14:24 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,24 +69,6 @@ int	get_rgb_values(char *rgb_definition, t_color *color)
 	return (1);
 }
 
-char	*join_color_args(char **split)
-{
-	char	*joined;
-	char	*tmp;
-	int		i;
-
-	joined = ft_strdup("");
-	i = 1;
-	while (split[i])
-	{
-		tmp = ft_strjoin(joined, split[i]);
-		free(joined);
-		joined = tmp;
-		i++;
-	}
-	return (joined);
-}
-
 int	parse_color(t_map *map_data, char **split)
 {
 	t_color	*color;
@@ -120,34 +102,16 @@ int	check_element(char *line, t_map *map_data)
 {
 	int		status;
 	char	**split;
-	char	*identifier;
-	char	*path;
-	char	*space_ptr;
 
 	status = 1;
-	space_ptr = ft_strchr(line, ' ');
-	if (!space_ptr)
-	{
-		split = ft_split(line, ' ');
-		if (!split || !split[0])
-		{
-			free_split(split);
-			return (1);
-		}
-	}
-	else
-	{
-		identifier = ft_substr(line, 0, space_ptr - line);
-		path = ft_strtrim(space_ptr, " ");
-		split = ft_calloc(3, sizeof(char *));
-		if (split)
-		{
-			split[0] = identifier;
-			split[1] = path;
-		}
-	}
+	split = extract_element_data(line);
 	if (!split)
 		return (0);
+	if (!split[0])
+	{
+		free_split(split);
+		return (1);
+	}
 	if (ft_strcmp(split[0], "NO") == 0 || ft_strcmp(split[0], "SO") == 0
 		|| ft_strcmp(split[0], "WE") == 0 || ft_strcmp(split[0], "EA") == 0)
 		status = parse_texture(map_data, split);
