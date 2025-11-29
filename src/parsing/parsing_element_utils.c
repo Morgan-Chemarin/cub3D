@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 16:13:54 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/27 16:23:22 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/29 18:08:26 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,33 @@ char	**extract_element_data(char *line)
 	split[0] = ft_substr(line, 0, space_ptr - line);
 	split[1] = ft_strtrim(space_ptr, " ");
 	return (split);
+}
+
+int	check_commas(char *rgb_definition)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (rgb_definition[i])
+	{
+		if (rgb_definition[i] == ',')
+			count++;
+		i++;
+	}
+	if (count != 2)
+		return (0);
+	return (1);
+}
+
+int	check_color_range(t_color *color)
+{
+	if (color->r < 0 || color->r > 255 || color->g < 0 || color->g > 255
+		|| color->b < 0 || color->b > 255)
+	{
+		ft_putstr_fd("Error\nRGB values must be in range [0-255]\n", 2);
+		return (0);
+	}
+	return (1);
 }

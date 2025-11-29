@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 14:29:09 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/27 16:14:24 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/29 18:08:22 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,24 @@ int	parse_texture(t_map *map_data, char **split)
 
 int	get_rgb_values(char *rgb_definition, t_color *color)
 {
-	int		r;
-	int		g;
-	int		b;
 	char	**rgb_values;
 
+	if (!check_commas(rgb_definition))
+	{
+		ft_putstr_fd("Error\nInvalid RGB format\n", 2);
+		return (0);
+	}
 	rgb_values = ft_split(rgb_definition, ',');
 	if (!validate_rgb_array(rgb_values))
 	{
 		free_split(rgb_values);
 		return (0);
 	}
-	r = ft_atoi(rgb_values[0]);
-	g = ft_atoi(rgb_values[1]);
-	b = ft_atoi(rgb_values[2]);
+	color->r = ft_atoi(rgb_values[0]);
+	color->g = ft_atoi(rgb_values[1]);
+	color->b = ft_atoi(rgb_values[2]);
 	free_split(rgb_values);
-	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
-	{
-		ft_putstr_fd("Error\nRGB values must be in range [0-255]\n", 2);
-		return (0);
-	}
-	color->r = r;
-	color->g = g;
-	color->b = b;
-	return (1);
+	return (check_color_range(color));
 }
 
 int	parse_color(t_map *map_data, char **split)

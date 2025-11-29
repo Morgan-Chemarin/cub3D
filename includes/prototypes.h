@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:21:05 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/27 16:15:08 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/29 18:08:35 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int		check_element(char *line, t_map *map_data);
 // parsing_element_utils
 char	*join_color_args(char **split);
 char	**extract_element_data(char *line);
+int		check_commas(char *rgb_definition);
+int		check_color_range(t_color *color);
 
 // parser
 int		parsing_element(t_map *map_data);

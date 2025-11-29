@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_handler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 21:13:32 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/26 19:12:57 by dev              ###   ########.fr       */
+/*   Updated: 2025/11/29 17:51:45 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_img	*get_texture(t_data *data, t_ray *ray)
 {
 	if (ray->side == 0)
 	{
-		if (ray->ray_dir_x < 0)
+		if (ray->ray_dir_x > 0)
 			return (&data->textures[2]);
 		else
 			return (&data->textures[3]);
