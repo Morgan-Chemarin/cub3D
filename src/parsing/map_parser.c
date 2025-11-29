@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 19:21:43 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/25 00:00:31 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/29 19:10:37 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int	isolate_map(t_map *map_data, int start_index)
 	char	**full_file_content;
 	char	**map_grid;
 
-	while (map_data->map[start_index] && !map_data->map[start_index][0])
+	while (map_data->map[start_index]
+		&& is_line_empty(map_data->map[start_index]))
 		start_index++;
 	if (!map_data->map[start_index])
 	{

@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 16:13:54 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/29 18:08:26 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/29 19:04:51 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,22 @@ int	check_color_range(t_color *color)
 	{
 		ft_putstr_fd("Error\nRGB values must be in range [0-255]\n", 2);
 		return (0);
+	}
+	return (1);
+}
+
+int	is_line_empty(char *line)
+{
+	int	i;
+
+	if (!line)
+		return (1);
+	i = 0;
+	while (line[i])
+	{
+		if (!ft_isspace(line[i]))
+			return (0);
+		i++;
 	}
 	return (1);
 }

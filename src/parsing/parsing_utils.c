@@ -6,7 +6,7 @@
 /*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:18:20 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/26 15:48:11 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/11/29 19:06:16 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ int	get_map_len(char **map, int start)
 	i = start;
 	while (map[i])
 	{
-		if (map[i][0] == '\0')
+		if (is_line_empty(map[i]))
 		{
 			j = i;
 			while (map[j])
 			{
-				if (map[j][0] != '\0')
+				if (!is_line_empty(map[j]))
 				{
 					ft_putstr_fd("Error\nInvalid map format\n", 2);
 					return (-1);
