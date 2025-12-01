@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+         #
+#    By: dev <dev@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/29 17:42:53 by pibreiss          #+#    #+#              #
-#    Updated: 2025/11/29 17:42:55 by pibreiss         ###   ########.fr        #
+#    Updated: 2025/11/30 11:56:04 by dev              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,13 +31,12 @@ LIBFT_DIR  = libft
 MINILIBX_DIR = minilibx-linux
 
 SRCS =	main.c \
-		dda.c \
 		draw.c \
 		events.c \
 		game_loop.c \
 		init_data.c \
 		init_texture.c \
-		raycasting.c \
+		init_raycasting.c \
 		texture_handler.c \
 		check_error.c \
 		map_parser.c \
@@ -46,6 +45,7 @@ SRCS =	main.c \
 		parsing_element.c \
 		parsing_element_utils.c \
 		parsing_utils.c \
+		raycasting.c \
 		read_map_file.c \
 		free_close.c \
 		

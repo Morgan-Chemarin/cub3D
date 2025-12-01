@@ -6,7 +6,7 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:03:14 by dev               #+#    #+#             */
-/*   Updated: 2025/11/26 19:12:32 by dev              ###   ########.fr       */
+/*   Updated: 2025/12/01 17:27:53 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	game_loop(t_data *data)
 	while (x < data->screen_w)
 	{
 		init_ray(data, &ray, x);
-		dda(data, &ray, x);
+		raycasting(data, &ray, x);
 		x++;
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img.ptr, 0, 0);

@@ -6,7 +6,7 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:37:17 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/26 19:11:56 by dev              ###   ########.fr       */
+/*   Updated: 2025/12/01 17:26:21 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,16 @@ typedef struct s_ray
 	double	camera_x;
 	double	ray_dir_x;
 	double	ray_dir_y;
-	int		map_x;
-	int		map_y;
-	double	side_dist_x;
-	double	side_dist_y;
-	double	delta_dist_x;
-	double	delta_dist_y;
-	int		step_x;
-	int		step_y;
-	int		hit;
-	int		side;
+	int		grid_x;
+	int		grid_y;
+	double	dist_to_side_x;
+	double	dist_to_side_y;
+	double	dist_step_x;
+	double	dist_step_y;
+	int		step_dir_x;
+	int		step_dir_y;
+	int		wall_hit;
+	int		axis_orientation;
 }	t_ray;
 
 typedef struct s_input

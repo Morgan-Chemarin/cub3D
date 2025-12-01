@@ -3,71 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 23:11:15 by dev               #+#    #+#             */
-/*   Updated: 2025/11/22 22:46:05 by pibreiss         ###   ########.fr       */
+/*   Created: 2025/11/18 20:32:01 by dev               #+#    #+#             */
+/*   Updated: 2025/12/01 17:26:10 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-#include <math.h>
+#include "../../includes/cub3d.h"
 
-static void	init_delta_dist(t_ray *ray)
+static double	compute_wall_dist(t_ray *ray)
 {
-	if (ray->ray_dir_x == 0)
-		ray->delta_dist_x = 1e30;
+	if (!ray->axis_orientation)
+		return (ray->dist_to_side_x - ray->dist_step_x);
 	else
-		ray->delta_dist_x = fabs(1.0 / ray->ray_dir_x);
-	if (ray->ray_dir_y == 0)
-		ray->delta_dist_y = 1e30;
-	else
-		ray->delta_dist_y = fabs(1.0 / ray->ray_dir_y);
+		return (ray->dist_to_side_y - ray->dist_step_y);
 }
 
-static void	init_step_x(t_data *data, t_ray *ray)
+static void	advance_ray(t_ray *ray)
 {
-	double	dx;
+	bool	is_x_closer;
 
-	if (ray->ray_dir_x < 0)
+	is_x_closer = (ray->dist_to_side_x < ray->dist_to_side_y);
+	ray->axis_orientation = !is_x_closer;
+	if (is_x_closer)
 	{
-		ray->step_x = -1;
-		ray->side_dist_x = (data->player.x - ray->map_x) * ray->delta_dist_x;
+		ray->dist_to_side_x += ray->dist_step_x;
+		ray->grid_x += ray->step_dir_x;
 	}
 	else
 	{
-		dx = ray->map_x + 1.0 - data->player.x;
-		ray->step_x = 1;
-		ray->side_dist_x = dx * ray->delta_dist_x;
+		ray->dist_to_side_y += ray->dist_step_y;
+		ray->grid_y += ray->step_dir_y;
 	}
 }
 
-static void	init_step_y(t_data *data, t_ray *ray)
+void	raycasting(t_data *data, t_ray *ray, int x)
 {
-	double	dy;
+	double	corrected_dist;
 
-	if (ray->ray_dir_y < 0)
+	while (true)
 	{
-		ray->step_y = -1;
-		ray->side_dist_y = (data->player.y - ray->map_y) * ray->delta_dist_y;
+		advance_ray(ray);
+		if (ray->grid_y < 0 || ray->grid_y >= data->map.map_length
+			|| ray->grid_x < 0 || ray->grid_x >= data->map.map_width)
+			break ;
+		if (data->map.map[ray->grid_y][ray->grid_x] == '1')
+		{
+			ray->wall_hit = 1;
+			break ;
+		}
 	}
-	else
+	if (ray->wall_hit)
 	{
-		dy = ray->map_y + 1.0 - data->player.y;
-		ray->step_y = 1;
-		ray->side_dist_y = dy * ray->delta_dist_y;
+		corrected_dist = compute_wall_dist(ray);
+		draw_wall(corrected_dist, data, ray, x);
 	}
-}
-
-void	init_ray(t_data *data, t_ray *ray, int x)
-{
-	ray->camera_x = 2.0 * x / (double)data->screen_w - 1.0;
-	ray->ray_dir_x = data->player.dir_x + data->player.plane_x * ray->camera_x;
-	ray->ray_dir_y = data->player.dir_y + data->player.plane_y * ray->camera_x;
-	ray->map_x = (int)data->player.x;
-	ray->map_y = (int)data->player.y;
-	ray->hit = 0;
-	init_delta_dist(ray);
-	init_step_x(data, ray);
-	init_step_y(data, ray);
 }

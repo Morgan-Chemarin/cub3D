@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:21:05 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/11/29 19:05:13 by pibreiss         ###   ########.fr       */
+/*   Updated: 2025/12/01 17:27:47 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,17 @@ int		game_loop(t_data *data);
 int		key_press(int keycode, t_data *data);
 int		key_release(int keycode, t_data *data);
 
-// raycasting
+// init_raycasting
 void	init_ray(t_data *data, t_ray *ray, int x);
 
-// dda
-void	dda(t_data *data, t_ray *ray, int x);
+// raycasting
+void	raycasting(t_data *data, t_ray *ray, int x);
 
 // init_texture
 int		init_textures(t_data *data);
 
 // texture_handler
-void	draw_wall(double perp_wall, t_data *data, t_ray *ray, int x);
+void	draw_wall(double corrected_dist, t_data *data, t_ray *ray, int x);
 
 // draw.c
 void	put_pixel(t_data *data, int x, int y, int color);
