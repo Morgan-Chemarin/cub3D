@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_handler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pibreiss <pibreiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 21:13:32 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/12/01 17:28:39 by dev              ###   ########.fr       */
+/*   Updated: 2025/12/01 18:01:39 by pibreiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int	get_texture_x(t_data *data, t_ray *ray, double c_dist, t_img *texture)
 		wall_x = data->player.x + c_dist * ray->ray_dir_x;
 	wall_x -= floor(wall_x);
 	texture_x = (int)(wall_x * (double)texture->width);
-	if ((ray->axis_orientation == 0 && ray->ray_dir_x > 0)
-		|| (ray->axis_orientation == 1 && ray->ray_dir_y < 0))
+	if ((ray->axis_orientation == 0 && ray->ray_dir_x < 0)
+		|| (ray->axis_orientation == 1 && ray->ray_dir_y > 0))
 		texture_x = texture->width - texture_x - 1;
 	return (texture_x);
 }
