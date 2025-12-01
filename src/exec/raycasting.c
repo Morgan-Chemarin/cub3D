@@ -6,7 +6,7 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 20:32:01 by dev               #+#    #+#             */
-/*   Updated: 2025/12/01 17:26:10 by dev              ###   ########.fr       */
+/*   Updated: 2025/12/01 17:32:24 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 static double	compute_wall_dist(t_ray *ray)
 {
 	if (!ray->axis_orientation)
-		return (ray->dist_to_side_x - ray->dist_step_x);
+		return (ray->total_dist_x - ray->dist_step_x);
 	else
-		return (ray->dist_to_side_y - ray->dist_step_y);
+		return (ray->total_dist_y - ray->dist_step_y);
 }
 
 static void	advance_ray(t_ray *ray)
 {
 	bool	is_x_closer;
 
-	is_x_closer = (ray->dist_to_side_x < ray->dist_to_side_y);
+	is_x_closer = (ray->total_dist_x < ray->total_dist_y);
 	ray->axis_orientation = !is_x_closer;
 	if (is_x_closer)
 	{
-		ray->dist_to_side_x += ray->dist_step_x;
+		ray->total_dist_x += ray->dist_step_x;
 		ray->grid_x += ray->step_dir_x;
 	}
 	else
 	{
-		ray->dist_to_side_y += ray->dist_step_y;
+		ray->total_dist_y += ray->dist_step_y;
 		ray->grid_y += ray->step_dir_y;
 	}
 }

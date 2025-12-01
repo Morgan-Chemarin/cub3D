@@ -6,7 +6,7 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 00:37:17 by pibreiss          #+#    #+#             */
-/*   Updated: 2025/12/01 17:26:21 by dev              ###   ########.fr       */
+/*   Updated: 2025/12/01 17:32:24 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ typedef struct s_ray
 	double	ray_dir_y;
 	int		grid_x;
 	int		grid_y;
-	double	dist_to_side_x;
-	double	dist_to_side_y;
+	double	total_dist_x;
+	double	total_dist_y;
 	double	dist_step_x;
 	double	dist_step_y;
 	int		step_dir_x;

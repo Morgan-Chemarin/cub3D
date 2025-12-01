@@ -6,7 +6,7 @@
 /*   By: dev <dev@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 23:11:15 by dev               #+#    #+#             */
-/*   Updated: 2025/11/30 12:22:39 by dev              ###   ########.fr       */
+/*   Updated: 2025/12/01 17:32:24 by dev              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ static void	init_step_x(t_data *data, t_ray *ray)
 	if (ray->ray_dir_x < 0)
 	{
 		ray->step_dir_x = -1;
-		ray->dist_to_side_x = (data->player.x - ray->grid_x) * ray->dist_step_x;
+		ray->total_dist_x = (data->player.x - ray->grid_x) * ray->dist_step_x;
 	}
 	else
 	{
 		dx = ray->grid_x + 1.0 - data->player.x;
 		ray->step_dir_x = 1;
-		ray->dist_to_side_x = dx * ray->dist_step_x;
+		ray->total_dist_x = dx * ray->dist_step_x;
 	}
 }
 
@@ -49,13 +49,13 @@ static void	init_step_y(t_data *data, t_ray *ray)
 	if (ray->ray_dir_y < 0)
 	{
 		ray->step_dir_y = -1;
-		ray->dist_to_side_y = (data->player.y - ray->grid_y) * ray->dist_step_y;
+		ray->total_dist_y = (data->player.y - ray->grid_y) * ray->dist_step_y;
 	}
 	else
 	{
 		dy = ray->grid_y + 1.0 - data->player.y;
 		ray->step_dir_y = 1;
-		ray->dist_to_side_y = dy * ray->dist_step_y;
+		ray->total_dist_y = dy * ray->dist_step_y;
 	}
 }
 
